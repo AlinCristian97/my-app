@@ -10,6 +10,6 @@ export class ProductDetailComponent {
   @Output() bought = new EventEmitter<string>();
 
   buy() {
-    this.bought.emit();
+    this.bought.emit(this.name);
   }
 }

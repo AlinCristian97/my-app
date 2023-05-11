@@ -1,11 +1,9 @@
 <h2>Product List</h2>
 <ul>
-  <li *ngFor="let product of products; trackBy: trackByProducts">
+  <li *ngFor="let product of products" (click)="selectedProduct = product">
     {{product}}
   </li>
 </ul>
-
-
 
 <app-product-detail
   *ngIf="selectedProduct; else noProduct"

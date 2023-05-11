@@ -1,14 +1,16 @@
 <h2>Product List</h2>
 <ul>
-  <li (click)="selectedProduct = 'Webcam'">Webcam</li>
-  <li (click)="selectedProduct = 'Microphone'">Microphone</li>
-  <li (click)="selectedProduct = 'Wireless Keyboard'">Wireless Keyboard</li>
+  <li *ngFor="let product of products | keyvalue">
+    {{product.key}}
+  </li>
 </ul>
 
+<p>{{today | date:'fullDate'}}</p>
 <app-product-detail
-  #product
-  [name]="selectedProduct"
-  (bought)="onBuy($event)"
-></app-product-detail>
-
-<span>{{product.name}}</span>
+  *ngIf="selectedProduct; else noProduct"
+  [product]="selectedProduct"
+  (bought)="onBuy()">
+</app-product-detail>
+<ng-template #noProduct>
+  <p>No product selected!</p>
+</ng-template>

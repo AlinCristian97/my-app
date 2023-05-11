@@ -1,9 +1,10 @@
 <h2>Product List</h2>
 <ul>
-  <li *ngFor="let product of products; let i=index">
-    {{i+1}}. {{product}}
+  <li *ngFor="let product of products; trackBy: trackByProducts">
+    {{product}}
   </li>
 </ul>
+
 
 
 <app-product-detail

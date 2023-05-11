@@ -1,11 +1,9 @@
 <h2>Product List</h2>
 <ul>
-  <li *ngFor="let product of products | keyvalue">
-    {{product.key}}
+  <li *ngFor="let product of products" (click)="selectedProduct = product">
+    {{product.name}}
   </li>
 </ul>
-
-<p>{{today | date:'fullDate'}}</p>
 <app-product-detail
   *ngIf="selectedProduct; else noProduct"
   [product]="selectedProduct"
@@ -14,3 +12,5 @@
 <ng-template #noProduct>
   <p>No product selected!</p>
 </ng-template>
+<h2>Favorites</h2>
+<app-favorites></app-favorites>

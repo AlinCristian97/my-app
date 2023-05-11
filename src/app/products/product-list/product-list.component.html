@@ -5,8 +5,10 @@
   <li (click)="selectedProduct = 'Wireless Keyboard'">Wireless Keyboard</li>
 </ul>
 <app-product-detail
-  *ngIf="selectedProduct"
+  *ngIf="selectedProduct; else noProduct"
   [name]="selectedProduct"
   (bought)="onBuy($event)">
 </app-product-detail>
-<p *ngIf="!selectedProduct">No product selected!</p>
+<ng-template #noProduct>
+  <p>No product selected!</p>
+</ng-template>

@@ -4,11 +4,9 @@
   <li (click)="selectedProduct = 'Microphone'">Microphone</li>
   <li (click)="selectedProduct = 'Wireless Keyboard'">Wireless Keyboard</li>
 </ul>
-
 <app-product-detail
-  #product
+  *ngIf="selectedProduct"
   [name]="selectedProduct"
-  (bought)="onBuy($event)"
-></app-product-detail>
-
-<span>{{product.name}}</span>
+  (bought)="onBuy($event)">
+</app-product-detail>
+<p *ngIf="!selectedProduct">No product selected!</p>
